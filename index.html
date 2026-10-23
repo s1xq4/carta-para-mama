@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi mamita ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(135deg, #fff0f3, #fce4ec, #fff7ed);
+  color: #74384b;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 16px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: clamp(30px, 6vw, 46px);
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: 17px;
+  margin: 0 0 32px;
+}
+
+.envelope-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.envelope {
+  position: relative;
+  width: min(280px, 78vw);
+  height: 180px;
+  background: #e99aaa;
+  border-radius: 5px;
+  box-shadow: 0 14px 35px #a84c6333;
+  transition: transform .3s;
+}
+
+.envelope-button:hover .envelope {
+  transform: translateY(-5px);
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f6bac6;
+  clip-path: polygon(0 0, 50% 58%, 100% 0);
+  z-index: 3;
+  transition: transform .8s;
+  transform-origin: top;
+}
+
+.envelope::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #e99aaa;
+  clip-path: polygon(0 100%, 0 0, 50% 57%, 100% 0, 100% 100%);
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+  transition: opacity .3s;
+}
+
+.envelope-button.opened .envelope::before {
+  transform: rotateX(180deg);
+}
+
+.envelope-button.opened .heart {
+  opacity: 0;
+}
+
+.hint {
+  font-size: 14px;
+  margin-top: 18px;
+  color: #986577;
+}
+
+.letter {
+  display: none;
+  width: min(650px, 100%);
+  margin-top: 28px;
+  padding: clamp(24px, 6vw, 45px);
+  background: #fffdf9;
+  border: 1px solid #f2d4dc;
+  border-radius: 18px;
+  box-shadow: 0 15px 45px #a84c631c;
+  text-align: left;
+  line-height: 1.85;
+  animation: appear 1s ease both;
+}
+
+.letter.visible {
+  display: block;
+}
+
+.letter h2 {
+  text-align: center;
+  color: #c45d7a;
+  font-size: 29px;
+}
+
+.letter p {
+  font-size: 17px;
+  white-space: pre-line;
+}
+
+.signature {
+  text-align: right;
+  color: #bd5472;
+  font-size: 21px !important;
+  font-style: italic;
+  margin-top: 28px;
+}
+
+.love {
+  text-align: center;
+  color: #c45d7a;
+  font-size: 22px !important;
+}
+
+.flower {
+  position: fixed;
+  top: -45px;
+  z-index: 5;
+  pointer-events: none;
+  animation: fall linear forwards;
+  will-change: transform;
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(var(--drift), 110vh, 0)
+      rotate(var(--rotation));
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  padding: 20px;
+  color: #a66d7e;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<main>
+  <h1>Para mi mamita ❤️</h1>
+  <p class="subtitle">
+    Hay algo muy bonito que quiero decirte...
+  </p>
+
+  <button class="envelope-button"
+          id="openButton"
+          aria-label="Abrir la carta para mamá"
+          aria-expanded="false"
+          aria-controls="letter">
+    <div class="envelope">
+      <span class="heart">❤️</span>
+    </div>
+  </button>
+
+  <p class="hint" id="hint">
+    Toca el sobre para abrir tu regalo 💌
+  </p>
+
+  <article class="letter" id="letter" aria-live="polite">
+    <h2>Para la mejor mamita del mundo 🌷</h2>
+
+    <p>
+Mi mamita hermosa:
+
+A veces siento que las palabras no son suficientes para expresar todo lo que significas para mí. Por eso hoy quise hacerte algo diferente, un pequeño regalo hecho con mucho amor, para recordarte lo importante que eres en mi vida.
+
+Gracias por todo lo que haces por mí, por cada esfuerzo, por cada momento en el que has estado a mi lado y por todas esas cosas que quizás haces en silencio sin esperar nada a cambio.
+
+Quiero que sepas que te admiro muchísimo. Eres una persona muy especial para mí y me siento afortunado de tenerte como mi mamá. Aunque no siempre encuentre las palabras correctas para demostrarlo, te llevo siempre en mi corazón.
+
+Si algún día estás cansada, triste o sientes que las cosas se ponen difíciles, quiero que recuerdes que también mereces amor, tranquilidad, abrazos y muchísima felicidad.
+
+Ojalá pudiera regalarte todas las flores del mundo para que ninguna fuera suficiente para representar lo mucho que te quiero. Por eso hoy dejo caer estas florecitas sobre esta carta, como una pequeña forma de recordarte que mereces cosas bonitas todos los días.
+
+No existe un regalo que pueda pagar todo lo que has hecho por mí, pero espero que este pequeño detalle te saque una sonrisa y te recuerde cuánto te amo.
+
+Gracias por ser mi mamita. Gracias por existir y por formar parte de mi vida. Deseo de corazón que la vida te regale muchos motivos para sonreír, salud, paz y momentos hermosos.
+
+Te quiero muchísimo, más de lo que a veces sé explicar. Y pase lo que pase, siempre vas a tener un lugar inmenso en mi corazón.
+    </p>
+
+    <p class="love">
+      🌷 Te quiero hasta el infinito y más allá. ❤️
+    </p>
+
+    <p class="signature">
+      Con todo mi amor,<br>
+      tu hijo ❤️
+    </p>
+  </article>
+</main>
+
+<footer>
+  Hecho con mucho amor, especialmente para ti ❤️
+</footer>
+
+<script>
+const button = document.getElementById("openButton");
+const letter = document.getElementById("letter");
+const hint = document.getElementById("hint");
+
+let opened = false;
+let flowerTimer = null;
+
+const flowers = ["🌸", "🌷", "🌹", "🌺", "💮", "🌼"];
+
+function createFlower() {
+  if (!opened) return;
+
+  const flower = document.createElement("span");
+  flower.className = "flower";
+  flower.textContent =
+    flowers[Math.floor(Math.random() * flowers.length)];
+
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.fontSize = (18 + Math.random() * 20) + "px";
+  flower.style.setProperty("--drift",
+    (Math.random() * 160 - 80) + "px");
+  flower.style.setProperty("--rotation",
+    (Math.random() * 500 - 250) + "deg");
+
+  const duration = 5 + Math.random() * 5;
+  flower.style.animationDuration = duration + "s";
+
+  document.body.appendChild(flower);
+
+  setTimeout(() => flower.remove(), duration * 1000 + 200);
+}
+
+button.addEventListener("click", () => {
+  if (opened) return;
+
+  opened = true;
+  button.classList.add("opened");
+  button.setAttribute("aria-expanded", "true");
+  hint.textContent = "Una cartita hecha con amor para ti ❤️";
+  letter.classList.add("visible");
+
+  for (let i = 0; i < 24; i++) {
+    setTimeout(createFlower, i * 130);
+  }
+
+  flowerTimer = setInterval(createFlower, 420);
+
+  button.disabled = true;
+});
+</script>
+</body>
+</html>
